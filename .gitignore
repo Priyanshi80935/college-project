@@ -22,3 +22,13 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
+airline-system/bin/.settings
+airline-system/.settings
+airline-system/bin
+airline-system/target
+airline-system/.classpath
+airline-system/.project
+.idea
+airline-system/.smarttomcat/*
+airline-system/src/main/java/com/tech/util/ConnectionUtil.java
+

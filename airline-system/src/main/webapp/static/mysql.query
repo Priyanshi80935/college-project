@@ -1,0 +1,21 @@
+CREATE TABLE flight (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    flight_number VARCHAR(100) NOT NULL,
+    destination VARCHAR(100) NOT NULL
+);
+
+
+CREATE TABLE `users` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `username` varchar(50) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `gender` enum('Male','Female','Other') NOT NULL,
+  `passportId` varchar(20) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `dateOfBirth` date NOT NULL,
+  `contact` varchar(20) NOT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+);
+
+
