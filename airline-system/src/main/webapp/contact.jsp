@@ -24,8 +24,8 @@
                 <div class="info-item" data-aos="fade" data-aos-delay="200">
                   <i class="bi bi-geo-alt"></i>
                   <h3>Address</h3>
-                  <p>A108 Adam Street</p>
-                  <p>New York, NY 535022</p>
+                  <p>Centurion University</p>
+                  <p>Bhubaneswar</p>
                 </div>
               </div><!-- End Info Item -->
 
