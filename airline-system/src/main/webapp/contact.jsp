@@ -24,8 +24,8 @@
                 <div class="info-item" data-aos="fade" data-aos-delay="200">
                   <i class="bi bi-geo-alt"></i>
                   <h3>Address</h3>
-                  <p>Centurion University</p>
-                  <p>Bhubaneswar</p>
+                  <p>Ramchandrapur, Jatni,</p>
+                  <p>Bhubaneswar, Odisha</p>
                 </div>
               </div><!-- End Info Item -->
 
@@ -33,8 +33,8 @@
                 <div class="info-item" data-aos="fade" data-aos-delay="300">
                   <i class="bi bi-telephone"></i>
                   <h3>Call Us</h3>
-                  <p>+1 5589 55488 55</p>
-                  <p>+1 6678 254445 41</p>
+                  <p>+9108260 077222</p>
+                  <p>+9166782 544452</p>
                 </div>
               </div><!-- End Info Item -->
 
@@ -43,7 +43,7 @@
                   <i class="bi bi-envelope"></i>
                   <h3>Email Us</h3>
                   <p>info@example.com</p>
-                  <p>contact@example.com</p>
+                  <p>Centurion@example.com</p>
                 </div>
               </div><!-- End Info Item -->
 
