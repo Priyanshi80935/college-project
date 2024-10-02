@@ -3,7 +3,9 @@ package com.tech.model;
 public class Flight {
     private Long id;
     private String flightNumber;
-    private String destination;
+    private String source;
+	private String destination;
+	private double price;
 
     public Long getId() {
         return id;
@@ -21,6 +23,14 @@ public class Flight {
         this.flightNumber = flightNumber;
     }
 
+    public String getSource() {
+        return source;
+    }
+
+    public void setSource(String source) {
+        this.source = source;
+    }
+    
     public String getDestination() {
         return destination;
     }
@@ -28,22 +38,25 @@ public class Flight {
     public void setDestination(String destination) {
         this.destination = destination;
     }
+    
+    public double getPrice() {
+        return price;
+    }
 
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    
+    
     public Flight() {
     }
 
-    public Flight(Long id, String flightNumber, String destination) {
+    public Flight(Long id, String flightNumber, String source, String destination,   double price) {
         this.id = id;
         this.flightNumber = flightNumber;
+        this.source = source;
         this.destination = destination;
-    }
-
-    @Override
-    public String toString() {
-        return "Flight{" +
-                "id=" + id +
-                ", flightNumber='" + flightNumber + '\'' +
-                ", destination='" + destination + '\'' +
-                '}';
+        this.price = price;
     }
 }

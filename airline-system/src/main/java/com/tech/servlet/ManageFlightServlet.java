@@ -13,7 +13,8 @@ import java.util.List;
 
 @WebServlet("/manage-flight")
 public class ManageFlightServlet extends HttpServlet {
-    private FlightDao flightDao;
+	private static final long serialVersionUID = 1L;
+	private FlightDao flightDao;
 
     @Override
     public void init() throws ServletException {
@@ -59,12 +60,13 @@ public class ManageFlightServlet extends HttpServlet {
 
     private void addFlight(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         String flightNumber = req.getParameter("flightNumber");
+        String source = req.getParameter("source");
         String destination = req.getParameter("destination");
+        double price = Double.parseDouble(req.getParameter("price"));
 
-        Flight flight = new Flight(null, flightNumber, destination);
+        Flight flight = new Flight(null, flightNumber, source, destination, price);
         flightDao.addFlight(flight);
-
-        resp.sendRedirect(req.getContextPath() + "/manage-flight");
+        viewFlights(req, resp);
     }
 
     private void editFlight(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -78,9 +80,12 @@ public class ManageFlightServlet extends HttpServlet {
     private void updateFlight(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         Long id = Long.parseLong(req.getParameter("id"));
         String flightNumber = req.getParameter("flightNumber");
+        String source = req.getParameter("source");
         String destination = req.getParameter("destination");
+        double price = Double.parseDouble(req.getParameter("price"));
 
-        Flight flight = new Flight(id, flightNumber, destination);
+
+        Flight flight = new Flight(id, flightNumber, source, destination, price);
         flightDao.updateFlight(flight);
 
         resp.sendRedirect(req.getContextPath() + "/manage-flight");

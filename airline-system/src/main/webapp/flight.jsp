@@ -83,15 +83,24 @@
                         <input type="text" class="form-control form-control-sm" id="flightNumber" name="flightNumber" value="${flight == null ? '' : flight.flightNumber}" placeholder="Flight Number" required>
                     </div>
 
-					<!-- source -->
-
+					<!-- Source -->
+                  <div class="form-group">
+                        <label for="source">Source</label>
+                        <input type="text" class="form-control form-control-sm" id="source" name="source" value="${flight == null ? '' : flight.source}" placeholder="Source" required>
+                    </div>
+                    
                     <!-- Destination -->
                     <div class="form-group">
                         <label for="destination">Destination</label>
                         <input type="text" class="form-control form-control-sm" id="destination" name="destination" value="${flight == null ? '' : flight.destination}" placeholder="Destination" required>
                     </div>
                     
-                    <!-- cost -->
+                    
+                    <!-- Price -->
+                    <div class="form-group">
+                        <label for="price">Price</label>
+                        <input type="number" step="1" class="form-control form-control-sm" id="price" name="price" value="${flight == null ? '' : flight.price}" placeholder="Price" required>
+                    </div>
 
                     <!-- Submit Button -->
                     <button type="submit" class="btn btn-primary btn-sm">Submit</button>
@@ -104,7 +113,9 @@
                     <thead class="table-dark">
                         <tr>
                             <th>Flight Number</th>
+                            <th>Source</th>
                             <th>Destination</th>
+                            <th>Price</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -113,7 +124,9 @@
                             <c:forEach var="flight" items="${flights}">
                                 <tr>
                                     <td>${flight.flightNumber}</td>
+                                    <td>${flight.source}</td>
                                     <td>${flight.destination}</td>
+                                    <td>${flight.price}</td>
                                     <td>
                                         <a href="${pageContext.request.contextPath}/manage-flight?id=${flight.id}&action=edit" class="btn btn-warning btn-sm">Edit</a>
                                         <a href="${pageContext.request.contextPath}/manage-flight?id=${flight.id}&action=delete" class="btn btn-danger btn-sm">Delete</a>
@@ -123,7 +136,7 @@
                         </c:if>
                         <c:if test="${empty flights}">
                             <tr>
-                                <td colspan="3" class="text-center">No flights available.</td>
+                                <td colspan="5" class="text-center">No flights available.</td>
                             </tr>
                         </c:if>
                     </tbody>
