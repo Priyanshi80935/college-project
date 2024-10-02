@@ -18,4 +18,13 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id`)
 );
 
+USE airline_system;
+
+ALTER TABLE flight
+ADD COLUMN seat INT NOT NULL; 
+
+USE airline_system;
+
+ALTER TABLE flight
+ADD COLUMN Price INT NOT NULL;
 
