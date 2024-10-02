@@ -3,6 +3,19 @@ CREATE TABLE flight (
     flight_number VARCHAR(100) NOT NULL,
     destination VARCHAR(100) NOT NULL
 );
+CREATE TABLE bookings (
+    id INT AUTO_INCREMENT PRIMARY KEY,             -- Unique identifier for the booking
+    fullName VARCHAR(100) NOT NULL,                -- Full name of the user making the booking
+    email VARCHAR(100) NOT NULL,                   -- Email address of the user
+    departureCity VARCHAR(100) NOT NULL,           -- Departure city for the booking
+    destinationCity VARCHAR(100) NOT NULL,         -- Destination city for the booking
+    departureDate DATE NOT NULL,                    -- Departure date
+    returnDate DATE NOT NULL,                       -- Return date
+    numberOfPassengers INT NOT NULL,               -- Number of passengers
+    paymentMethod ENUM('Credit Card', 'Debit Card', 'PayPal') NOT NULL, -- Payment method
+    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,  -- Timestamp when the booking was created
+    updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP -- Timestamp when the booking was last updated
+);
 
 
 CREATE TABLE `users` (
@@ -18,13 +31,7 @@ CREATE TABLE `users` (
   PRIMARY KEY (`id`)
 );
 
-USE airline_system;
-
 ALTER TABLE flight
-ADD COLUMN seat INT NOT NULL; 
-
-USE airline_system;
-
-ALTER TABLE flight
-ADD COLUMN Price INT NOT NULL;
+ADD COLUMN source VARCHAR(100) NOT NULL,
+ADD COLUMN price DECIMAL(10, 2) NOT NULL;
 
