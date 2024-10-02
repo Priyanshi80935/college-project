@@ -67,7 +67,7 @@ public class UserDao {
     public void updateUser(User user) {
         try {
             Connection connection = ConnectionUtil.getConnection();
-            String sql = "UPDATE users SET username = ?, email = ?, gender = ?, passport_id = ?, address = ?, date_of_birth = ?, contact = ? WHERE id = ?";
+            String sql = "UPDATE users SET username = ?, email = ?, gender = ?, passportid = ?, address = ?, dateofbirth = ?, contact = ? WHERE id = ?";
             
             try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
                 preparedStatement.setString(1, user.getUsername());
@@ -100,4 +100,32 @@ public class UserDao {
             e.printStackTrace();
         }
     }
+
+	public User findById(String id) {
+		User user = null;
+        try {
+            Connection connection = ConnectionUtil.getConnection();
+            String sql = "SELECT id, username, email, gender, passportId, address, dateofBirth, contact FROM users WHERE id = ?";
+            
+            try (PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
+            	preparedStatement.setLong(1, Long.valueOf(id));
+                try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                    if(resultSet.next()) {
+                        user = new User();
+                        user.setId(resultSet.getInt("id"));
+                        user.setUsername(resultSet.getString("username"));
+                        user.setEmail(resultSet.getString("email"));
+                        user.setGender(resultSet.getString("gender"));
+                        user.setPassportId(resultSet.getString("passportId"));
+                        user.setAddress(resultSet.getString("address"));
+                        user.setDateOfBirth(resultSet.getString("dateOfBirth"));
+                        user.setContact(resultSet.getString("contact"));
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return user;
+	}
 }

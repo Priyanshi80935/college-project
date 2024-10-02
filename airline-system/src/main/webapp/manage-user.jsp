@@ -1,3 +1,4 @@
+<%@page import="com.tech.model.User"%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
@@ -74,57 +75,74 @@
             <!-- User Management Form -->
             <div class="container d-flex justify-content-center">
                 <form action="${pageContext.request.contextPath}/manage-user" method="post" class="w-100">
-                    <input type="hidden" name="action" value="add">
+                    <input type="hidden" name="action" value="${currentUser == null ? 'add' :'update' }">
+                    <input type="hidden" name="id" value="${currentUser == null ? '' : currentUser.id}">
 
                     <!-- Username -->
                     <div class="form-group">
                         <label for="username">Username</label>
-                        <input type="text" class="form-control form-control-sm" id="username" name="username" placeholder="Username" required>
+                        <input type="text" class="form-control form-control-sm" id="username" name="username" placeholder="Username" 
+                        value="${currentUser == null ? '' : currentUser.username}"
+                        required>
                     </div>
 
                     <!-- Email -->
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" class="form-control form-control-sm" id="email" name="email" placeholder="Email" required>
+                        <input type="email" class="form-control form-control-sm" id="email" name="email" placeholder="Email" 
+                         value="${currentUser == null ? '' : currentUser.email}"
+                         required>
                     </div>
 
                     <!-- Gender -->
-                    <div class="form-group">
-                        <label for="gender">Gender</label>
-                        <select class="form-control form-control-sm" id="gender" name="gender" required>
-                            <option value="">Select Gender</option>
-                            <option value="Male">Male</option>
-                            <option value="Female">Female</option>
-                            <option value="Other">Other</option>
-                        </select>
-                    </div>
+					<div class="form-group">
+					    <label for="gender">Gender</label>
+					    <select class="form-control form-control-sm" id="gender" name="gender" required>
+					        <option value="">Select Gender</option>
+					        <option value="Male" ${currentUser != null && currentUser.gender == 'Male' ? 'selected' : ''}>Male</option>
+					        <option value="Female" ${currentUser != null && currentUser.gender == 'Female' ? 'selected' : ''}>Female</option>
+					        <option value="Other" ${currentUser != null && currentUser.gender == 'Other' ? 'selected' : ''}>Other</option>
+					    </select>
+					</div>
+
 
                     <!-- Passport ID -->
                     <div class="form-group">
                         <label for="passportId">Passport ID</label>
-                        <input type="text" class="form-control form-control-sm" id="passportId" name="passportId" placeholder="Passport ID" required>
+                        <input type="text" class="form-control form-control-sm" id="passportId" name="passportId" placeholder="Passport ID" 
+                        value="${currentUser == null ? '' : currentUser.passportId}"
+                        required>
                     </div>
 
                     <!-- Address -->
                     <div class="form-group">
                         <label for="address">Address</label>
-                        <input type="text" class="form-control form-control-sm" id="address" name="address" placeholder="Address" required>
+                        <input type="text" class="form-control form-control-sm" id="address" name="address" placeholder="Address" 
+                        value="${currentUser == null ? '' : currentUser.address}"
+                        required>
                     </div>
 
                     <!-- Date of Birth -->
                     <div class="form-group">
                         <label for="dateOfBirth">Date of Birth</label>
-                        <input type="date" class="form-control form-control-sm" id="dateOfBirth" name="dateOfBirth" placeholder="Date of Birth" required>
+                        <input type="date" class="form-control form-control-sm" id="dateOfBirth" name="dateOfBirth" placeholder="Date of Birth" 
+                        value="${currentUser == null ? '' : currentUser.dateOfBirth}"
+                        required>
                     </div>
 
                     <!-- Contact -->
                     <div class="form-group">
                         <label for="contact">Contact Number</label>
-                        <input type="text" class="form-control form-control-sm" id="contact" name="contact" placeholder="Contact Number" required>
+                        <input type="text" class="form-control form-control-sm" id="contact" name="contact" placeholder="Contact Number" 
+                        value="${currentUser == null ? '' : currentUser.contact}"
+                        required>
                     </div>
 
-                    <!-- Submit Button -->
-                    <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+					<%if(request.getAttribute("currentUser") != null) {%>
+					 <button type="submit" class="btn btn-primary btn-sm">Update</button>
+					<%} else{ %>
+					 <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+					<%} %>
                 </form>
             </div>
 
@@ -155,8 +173,8 @@
                                     <td>${user.dateOfBirth}</td>
                                     <td>${user.contact}</td>
                                     <td>
-                                        <a href="${pageContext.request.contextPath}/user/edit?id=${user.id}" class="btn btn-warning btn-sm">Edit</a>
-                                        <a href="${pageContext.request.contextPath}/user/delete?id=${user.id}" class="btn btn-danger btn-sm">Delete</a>
+                                        <a href="${pageContext.request.contextPath}/manage-user?id=${user.id}&action=edit" class="btn btn-warning btn-sm">Edit</a>
+                                        <a href="${pageContext.request.contextPath}/manage-user?id=${user.id}&action=delete" class="btn btn-danger btn-sm">Delete</a>
                                     </td>
                                 </tr>
                             </c:forEach>

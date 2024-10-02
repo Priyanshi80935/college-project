@@ -83,11 +83,15 @@
                         <input type="text" class="form-control form-control-sm" id="flightNumber" name="flightNumber" value="${flight == null ? '' : flight.flightNumber}" placeholder="Flight Number" required>
                     </div>
 
+					<!-- source -->
+
                     <!-- Destination -->
                     <div class="form-group">
                         <label for="destination">Destination</label>
                         <input type="text" class="form-control form-control-sm" id="destination" name="destination" value="${flight == null ? '' : flight.destination}" placeholder="Destination" required>
                     </div>
+                    
+                    <!-- cost -->
 
                     <!-- Submit Button -->
                     <button type="submit" class="btn btn-primary btn-sm">Submit</button>

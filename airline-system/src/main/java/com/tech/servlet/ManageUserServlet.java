@@ -55,6 +55,9 @@ public class ManageUserServlet extends HttpServlet {
                 addUser(req, resp);
                 break;
             case "edit":
+            	editUser(req, resp);
+            	break;
+            case "update":
                 updateUser(req, resp);
                 break;
             case "delete":
@@ -67,7 +70,19 @@ public class ManageUserServlet extends HttpServlet {
         }
     }
 
-    private void addUser(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+    private void editUser(HttpServletRequest req, HttpServletResponse resp) {
+		String id = req.getParameter("id");
+		User user = userDao.findById(id);
+		req.setAttribute("currentUser", user);
+		try {
+			viewUsers(req, resp);
+		} catch (IOException | ServletException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	private void addUser(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         // Collect user data from request
         String username = req.getParameter("username");
         String email = req.getParameter("email");
@@ -132,7 +147,6 @@ public class ManageUserServlet extends HttpServlet {
 
         // Refresh the user list
         viewUsers(req, resp);
-        resp.sendRedirect(req.getContextPath() + "/manage-user");
     }
 
     private void viewUsers(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
