@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet("/booking")  // Change servlet mapping
+@WebServlet("/manage-booking")  // Change servlet mapping
 public class ManageBookingServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private BookingDao bookingDao;  // Use BookingDao instead of UserDao

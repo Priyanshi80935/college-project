@@ -80,7 +80,7 @@ public class BookingDao {
                 preparedStatement.setDate(6, new java.sql.Date(booking.getReturnDate().getTime()));
                 preparedStatement.setInt(7, booking.getNumberOfPassengers());
                 preparedStatement.setString(8, booking.getPaymentMethod());
-                preparedStatement.setInt(10, booking.getId());
+                preparedStatement.setInt(9, booking.getId());
 
                 preparedStatement.executeUpdate();
             }
