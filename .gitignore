@@ -32,3 +32,4 @@ airline-system/.project
 airline-system/.smarttomcat/*
 airline-system/src/main/java/com/tech/util/ConnectionUtil.java
 
+/.metadata/

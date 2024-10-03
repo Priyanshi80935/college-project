@@ -24,7 +24,7 @@
                 <div class="info-item" data-aos="fade" data-aos-delay="200">
                   <i class="bi bi-geo-alt"></i>
                   <h3>Address</h3>
-                  <p>Ramchandrapur, Jatni,</p>
+                  <p>centurion,</p>
                   <p>Bhubaneswar, Odisha</p>
                 </div>
               </div><!-- End Info Item -->
