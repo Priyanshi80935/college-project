@@ -47,7 +47,7 @@
                     <li><a href="${pageContext.request.contextPath}/manage-flight">Flight</a></li>
                     <li><a href="${pageContext.request.contextPath}/manage-user">Manage User</a></li>
                     <li><a href="${pageContext.request.contextPath}/logout">
-                                        <i class="fa fa-sign-out" title="Logout"></i></a></li>
+                                        <i title="Logout">Logout</i></a></li>
                 <%} %>
 
                 <%
@@ -56,7 +56,7 @@
                     <li><a href="${pageContext.request.contextPath}/booking.jsp">Booking</a></li>
                     <li><a href="${pageContext.request.contextPath}/about.jsp">About</a></li>
                     <li><a href="${pageContext.request.contextPath}/contact.jsp">Contact</a></li>
-                    <li><a href="${pageContext.request.contextPath}/index.jsp?admin=true"><i class="fa fa-sign-in" title="Login"></i>
+                    <li><a href="${pageContext.request.contextPath}/index.jsp?admin=true"><i title="Login">Login</i>
                     </a></li>
                 <%} %>
 
